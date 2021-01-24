@@ -11,4 +11,24 @@ fun main(args: Array<String>) {
     val intNum: Int = 10
     val longNum: Long = intNum.toLong()
     val shortNum: Short = intNum.toShort()
+
+    // 문자열의 숫자 변환
+    /**
+     * 자바에서는 문자열을 숫자로 변환할 때 각 자료형별로 parse 메서드를 사용해야했다.
+     * 이 또한 너무 소스의 길이가 길었고 불편했기에 개선의 여지가 있었다.
+     *
+     * 코틀린에서는 이를 위에 나온 형 변환 메서드로 매우 간략하게 줄여버렸다.
+     * 하지만 숫자가 아닌 문자열을 형 변환할 순 없다. 자바와 똑같이 잘못된 문자열을 형 변환한다면 NumberFormatException 이 발생한다.
+     * NumberFormatException은 RuntimeException을 상속받기 때문에 명시적인 예외처리를 해주지 않아도 되지만, 문자열의 형태가 숫자임이 보장되지 않는
+     * 이상 명시적인 예외처리를 해주어야 한다.
+     */
+    val str = "10"
+    val number: Int =
+        try {
+            str.toInt()
+        } catch (e: Exception) {
+            0
+        }
+    // 만약 str이 숫자로 변환될 수 없는 문자열이 있었다면 number에는 0이 들어가서 0이 출력되었을 것이다.
+    println(number)
 }
