@@ -1,7 +1,5 @@
 package chap11
 
-import chap11.Ebook as Ebook
-
 /**
  * 오픈클래스
  * 코틀린에도 자바나 다른 객체지향 언어와 같이 상속이라는 개념이 존재한다. 코틀린에서 클래스와 메서드 모두 기본적으로 final이다.
